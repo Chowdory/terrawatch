@@ -1,0 +1,201 @@
+import type { DisasterType, Severity } from './disasters'
+
+export type Locale = 'en' | 'de'
+
+const en = {
+  nav: { live: 'Live map', learn: 'Learn', prepare: 'Prepare' },
+  header: { language: 'Language', theme: 'Toggle theme' },
+  hero: {
+    eyebrow: 'Live global monitoring',
+    title: 'Know what the planet is doing, right now.',
+    subtitle:
+      'Earthquakes, tsunamis, floods, wildfires, cyclones and more — tracked worldwide from USGS and GDACS, updated every few minutes.',
+  },
+  stats: {
+    total: 'Active events',
+    high: 'High severity',
+    strongest: 'Strongest quake (7 days)',
+    tsunami: 'Tsunami flags',
+  },
+  feed: {
+    title: 'Event feed',
+    search: 'Search location…',
+    allTypes: 'All',
+    sort: 'Sort',
+    sortNewest: 'Newest',
+    sortSeverity: 'Severity',
+    minSeverity: 'Min. severity',
+    empty: 'No events match your filters.',
+    details: 'Details',
+    showing: (n: number, total: number) => `Showing ${n} of ${total}`,
+    loadMore: 'Show more',
+  },
+  map: { loading: 'Loading map…', legend: 'Legend' },
+  status: {
+    updated: 'Updated',
+    loading: 'Loading live data…',
+    error: 'Could not load live data. Retrying…',
+    sourceDown: (s: string) => `${s} is temporarily unavailable`,
+  },
+  types: {
+    earthquake: 'Earthquake',
+    tsunami: 'Tsunami',
+    flood: 'Flood',
+    wildfire: 'Wildfire',
+    cyclone: 'Cyclone',
+    volcano: 'Volcano',
+    drought: 'Drought',
+    landslide: 'Landslide',
+  } as Record<DisasterType | 'landslide', string>,
+  severity: { low: 'Low', medium: 'Moderate', high: 'High' } as Record<Severity, string>,
+  time: {
+    justNow: 'just now',
+    minutes: (n: number) => `${n} min ago`,
+    hours: (n: number) => `${n} h ago`,
+    days: (n: number) => `${n} d ago`,
+  },
+  learn: {
+    eyebrow: 'Awareness hub',
+    title: 'Understand the hazards',
+    subtitle:
+      'How each disaster forms, the warning signs to watch for, and what to do before, during and after.',
+    read: 'Read guide',
+    howItForms: 'How it forms',
+    warningSigns: 'Warning signs',
+    before: 'Before',
+    during: 'During',
+    after: 'After',
+    back: 'All hazards',
+    seeLive: 'See live events',
+  },
+  prepare: {
+    eyebrow: 'Preparedness center',
+    title: 'Get ready before it happens',
+    subtitle:
+      'Build your emergency kit and a family plan. Print it and keep a copy somewhere everyone can find it.',
+    kitTitle: 'Emergency kit checklist',
+    kitProgress: (done: number, total: number) => `${done} of ${total} packed`,
+    planTitle: 'Family emergency plan',
+    planHint: 'Fill in the details, then print or save as PDF.',
+    meetingPoint: 'Meeting point near home',
+    meetingPointOut: 'Meeting point outside the neighborhood',
+    outOfArea: 'Out-of-area contact (name & phone)',
+    medical: 'Medical needs & medications',
+    pets: 'Pets & their needs',
+    notes: 'Other notes',
+    members: 'Household members',
+    addMember: 'Add',
+    memberPlaceholder: 'Name & phone number',
+    remove: 'Remove',
+    print: 'Print plan',
+    reset: 'Reset',
+    emergencyNumbers: 'Emergency numbers',
+    numbersHint: 'EU: 112 · US/Canada: 911 · UK: 999 / 112 · Australia: 000',
+  },
+  footer: {
+    data: 'Data: USGS Earthquake Hazards Program and GDACS (Global Disaster Alert and Coordination System).',
+    disclaimer:
+      'TerraWatch is an awareness tool. Always follow instructions from your local authorities.',
+  },
+}
+
+export type Dictionary = typeof en
+
+const de: Dictionary = {
+  nav: { live: 'Live-Karte', learn: 'Wissen', prepare: 'Vorsorge' },
+  header: { language: 'Sprache', theme: 'Design wechseln' },
+  hero: {
+    eyebrow: 'Weltweite Live-Überwachung',
+    title: 'Wissen, was auf der Erde gerade passiert.',
+    subtitle:
+      'Erdbeben, Tsunamis, Überschwemmungen, Waldbrände, Zyklone und mehr — weltweit erfasst von USGS und GDACS, alle paar Minuten aktualisiert.',
+  },
+  stats: {
+    total: 'Aktive Ereignisse',
+    high: 'Hohe Schwere',
+    strongest: 'Stärkstes Beben (7 Tage)',
+    tsunami: 'Tsunami-Hinweise',
+  },
+  feed: {
+    title: 'Ereignis-Feed',
+    search: 'Ort suchen…',
+    allTypes: 'Alle',
+    sort: 'Sortierung',
+    sortNewest: 'Neueste',
+    sortSeverity: 'Schwere',
+    minSeverity: 'Min. Schwere',
+    empty: 'Keine Ereignisse entsprechen deinen Filtern.',
+    details: 'Details',
+    showing: (n, total) => `${n} von ${total} angezeigt`,
+    loadMore: 'Mehr anzeigen',
+  },
+  map: { loading: 'Karte wird geladen…', legend: 'Legende' },
+  status: {
+    updated: 'Aktualisiert',
+    loading: 'Live-Daten werden geladen…',
+    error: 'Live-Daten konnten nicht geladen werden. Neuer Versuch…',
+    sourceDown: (s) => `${s} ist vorübergehend nicht verfügbar`,
+  },
+  types: {
+    earthquake: 'Erdbeben',
+    tsunami: 'Tsunami',
+    flood: 'Überschwemmung',
+    wildfire: 'Waldbrand',
+    cyclone: 'Zyklon',
+    volcano: 'Vulkan',
+    drought: 'Dürre',
+    landslide: 'Erdrutsch',
+  },
+  severity: { low: 'Niedrig', medium: 'Mittel', high: 'Hoch' },
+  time: {
+    justNow: 'gerade eben',
+    minutes: (n) => `vor ${n} Min.`,
+    hours: (n) => `vor ${n} Std.`,
+    days: (n) => `vor ${n} T.`,
+  },
+  learn: {
+    eyebrow: 'Wissens-Hub',
+    title: 'Gefahren verstehen',
+    subtitle:
+      'Wie jede Katastrophe entsteht, auf welche Warnzeichen du achten solltest und was vorher, währenddessen und danach zu tun ist.',
+    read: 'Ratgeber lesen',
+    howItForms: 'Wie es entsteht',
+    warningSigns: 'Warnzeichen',
+    before: 'Vorher',
+    during: 'Währenddessen',
+    after: 'Danach',
+    back: 'Alle Gefahren',
+    seeLive: 'Live-Ereignisse ansehen',
+  },
+  prepare: {
+    eyebrow: 'Vorsorgezentrum',
+    title: 'Vorbereitet sein, bevor es passiert',
+    subtitle:
+      'Stelle dein Notfallgepäck zusammen und erstelle einen Familienplan. Drucke ihn aus und bewahre ihn gut auffindbar auf.',
+    kitTitle: 'Checkliste Notfallgepäck',
+    kitProgress: (done, total) => `${done} von ${total} gepackt`,
+    planTitle: 'Familien-Notfallplan',
+    planHint: 'Fülle die Angaben aus und drucke den Plan oder speichere ihn als PDF.',
+    meetingPoint: 'Treffpunkt in der Nähe des Zuhauses',
+    meetingPointOut: 'Treffpunkt außerhalb der Nachbarschaft',
+    outOfArea: 'Kontakt außerhalb der Region (Name & Telefon)',
+    medical: 'Medizinischer Bedarf & Medikamente',
+    pets: 'Haustiere & ihr Bedarf',
+    notes: 'Weitere Notizen',
+    members: 'Haushaltsmitglieder',
+    addMember: 'Hinzufügen',
+    memberPlaceholder: 'Name & Telefonnummer',
+    remove: 'Entfernen',
+    print: 'Plan drucken',
+    reset: 'Zurücksetzen',
+    emergencyNumbers: 'Notrufnummern',
+    numbersHint: 'EU/Deutschland: 112 (Polizei 110) · USA/Kanada: 911 · UK: 999 / 112',
+  },
+  footer: {
+    data: 'Daten: USGS Earthquake Hazards Program und GDACS (Global Disaster Alert and Coordination System).',
+    disclaimer:
+      'TerraWatch dient der Information. Befolge immer die Anweisungen deiner örtlichen Behörden.',
+  },
+}
+
+export const dictionaries: Record<Locale, Dictionary> = { en, de }
